@@ -1,0 +1,69 @@
+@model KennedyLabsWebsite.Models.ItemModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+<form asp-action="Create">
+    <div class="form-horizontal">
+        <h4>ItemModel</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Context" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Context" class="form-control" />
+                <span asp-validation-for="Context" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Ordinal" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Ordinal" class="form-control" />
+                <span asp-validation-for="Ordinal" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PageId" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="PageId" class ="form-control" asp-items="ViewBag.PageId"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="SectionId" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="SectionId" class ="form-control" asp-items="ViewBag.SectionId"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Text" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Text" class="form-control" />
+                <span asp-validation-for="Text" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Type" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Type" class="form-control" />
+                <span asp-validation-for="Type" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
